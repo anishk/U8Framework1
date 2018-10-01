@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
     <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
-        id = "com.unifyed.u8frmework1" version   = "1.0.0">
-        <name>MyCLU</name>
-        <description>California Lutheran University</description>
-        <author href="http://Unifyed.com" email="info@unifyed.com">Unifyed Mobile Team</author>
+        id = "com.unifyed.u8framework" version   = "1.0.0">
+        <name>Unifyed Mobile</name>
+        <description>Unifyed Mobile</description>
+        <author href="http://kryptosmobile.com" email="info@kryptosmobile.com">Kryptos Mobile Team</author>
         <feature name="http://api.phonegap.com/1.0/device" />
-         <preference name="permissions"                value="none"/>
+        
+        <preference name="permissions"                value="none"/>
         <preference name="orientation"                value="portrait" />        <!-- all: default means both landscape and portrait are enabled -->
         <preference name="target-device"              value="universal" />      <!-- all: possible values handset, tablet, or universal -->
         <preference name="fullscreen"                 value="false" />           <!-- all: hides the status bar at the top of the screen -->
@@ -116,7 +117,14 @@
         <gap:plugin name="phonegap-plugin-push" source="npm" spec="1.8.2">
             <param name="SENDER_ID" value="459115189650" />
         </gap:plugin>
-             
+        
+        <!-- ios sms plugin -->
+        <!--<plugin spec="https://github.com/DevendraSinghNagar/cordova-sms-all-devices-plugin.git" source="git" />-->
+
+        <!-- Android sms plugin -->
+        <!--<gap:plugin name="cordova-plugin-sms" source="npm" />-->
+       
+        
         
 
         <gap:plugin name="cordova-plugin-actionsheet" source="npm" />
@@ -127,29 +135,26 @@
          <plugin spec="https://github.com/ti8m/DocumentHandler.git" source="git" />
         
         <plugin spec="https://github.com/venkykowshik/startapp.git" source="git" />
-   
-        <gap:config-file platform="ios" parent="NSContactsUsageDescription" overwrite="true">
-            <string>Need contacts access to add individuals</string>
-        </gap:config-file>
-
+        
+        <!--<gap:config-file platform="ios" parent="LSApplicationQueriesSchemes" overwrite="true">
+        <array>
+            <string>airwatch</string>
+            <string>bblearn</string>
+            <string>lync</string>
+            <string>gmm</string>
+            <string>ms-outlook</string>
+            <string>eaccountsapp</string>
+        </array>
+    </gap:config-file>-->
+    
+        
         <gap:config-file platform="ios" parent="UIStatusBarHidden" overwrite="true">
             <true/>
         </gap:config-file>
-        
-         <platform name="ios">
-    <plugin name="cordova-custom-config" version="*"/>
-    <config-file platform="ios" target="*-Info.plist" parent="NSLocationWhenInUseUsageDescription">
-        <string>Need location access to find directions</string>
-    </config-file>
-</platform>
-        
-        <plugin name="cordova-plugin-media-capture" source="npm" spec="1.4.1" >
-    <variable name="CAMERA_USAGE_DESCRIPTION" value="Need camera access to add pictures in Connect post" />
-
-    <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="Need Photo library access to add pictures in Connect post" />
-  </plugin>
-        
-
-        <gap:config-file platform="ios" parent="CFBundleVersion"><string>12.0.0</string></gap:config-file>
-
+        <gap:config-file platform="ios" parent="NSLocationWhenInUseUsageDescription" overwrite="false">
+            <array>
+                <string>Allow GPS</string>
+            </array>
+        </gap:config-file>
+        <!--<gap:config-file platform="ios" parent="CFBundleVersion"><string>1.0.7</string></gap:config-file>-->
     </widget>
